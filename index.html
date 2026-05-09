@@ -3,174 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 9A News - Air Pollution Special</title>
+    <title>SafeNet AI - #1 Scam Detector | Protect Yourself Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Times New Roman', serif; margin: 0; padding: 0; background-color: #f5f5dc; color: #000; line-height: 1.5; transition: background-color 0.5s, color 0.5s; }
-        body.dark { background-color: #222; color: #fff; }
-        header { background-color: #fff; border-bottom: 5px solid #000; text-align: center; padding: 20px; position: relative; animation: fadeIn 2s; }
-        .dark header { background-color: #333; }
-        .logo { display: inline-block; font-size: 4em; font-weight: bold; color: #ff0000; text-shadow: 2px 2px #000; margin-bottom: 10px; cursor: pointer; transition: transform 0.3s, text-shadow 0.3s; position: relative; }
-        .logo:hover { transform: scale(1.1); text-shadow: 0 0 20px #ff0000; }
-        .logo::before { content: '📰'; position: absolute; left: -50px; top: 10px; font-size: 0.8em; animation: bounce 1s infinite; }
-        .masthead { font-size: 3em; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; animation: bounce 1s; }
-        .dateline { font-size: 1.2em; color: #666; font-weight: bold; }
-        .breaking { background-color: #ff0000; color: white; padding: 5px; font-size: 1.1em; position: absolute; top: 10px; right: 10px; transform: rotate(-5deg); animation: rotate 3s infinite linear; }
-        .controls { position: fixed; top: 10px; left: 10px; z-index: 1000; }
-        button { background-color: #000; color: white; border: none; padding: 10px; margin: 5px; cursor: pointer; font-family: 'Times New Roman', serif; border-radius: 5px; }
-        button:hover { background-color: #ff0000; transform: scale(1.1); }
-        .section { padding: 20px; max-width: 1200px; margin: 0 auto; background-color: #fff; border: 3px solid #000; box-shadow: 0 0 15px rgba(0,0,0,0.3); margin-bottom: 20px; column-count: 3; column-gap: 20px; column-rule: 1px solid #ccc; animation: slideIn 1s; }
-        .dark .section { background-color: #444; }
-        h1 { font-size: 2.5em; text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-top: 0; }
-        h2 { font-size: 1.8em; border-bottom: 1px solid #000; padding-bottom: 5px; margin-top: 20px; }
-        h3 { font-size: 1.3em; font-style: italic; color: #333; }
-        .dark h3 { color: #ccc; }
-        img { max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ccc; transition: transform 0.3s; }
-        img:hover { transform: scale(1.05); }
-        .caption { font-size: 0.8em; font-style: italic; text-align: center; margin-bottom: 10px; }
-        ul { list-style-type: square; padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .byline { font-size: 0.9em; font-weight: bold; margin-bottom: 10px; }
-        .pullquote { font-size: 1.5em; font-style: italic; color: #ff0000; text-align: center; margin: 20px 0; border: 2px solid #ff0000; padding: 10px; animation: pulse 2s infinite; }
-        .sidebar { background-color: #f0f0f0; border: 1px solid #000; padding: 10px; margin: 10px 0; font-size: 0.9em; }
-        .dark .sidebar { background-color: #555; }
-        .infographic { background-color: #e8f5e8; border: 2px solid #4CAF50; padding: 10px; margin: 10px 0; text-align: center; cursor: pointer; transition: background-color 0.3s; }
-        .infographic:hover { background-color: #ff0000; color: white; }
-        .ad { background-color: #fffacd; border: 1px dashed #000; padding: 10px; margin: 10px 0; text-align: center; font-size: 0.8em; font-weight: bold; }
-        .quiz { background-color: #fffacd; padding: 10px; border: 1px solid #000; margin-top: 20px; }
-        .weather { background-color: #87ceeb; padding: 10px; border: 1px solid #000; margin: 10px 0; text-align: center; }
-        .aqi-alert { background-color: #ff0000; color: white; border: 3px solid #000; padding: 15px; margin: 20px 0; text-align: center; font-size: 1.2em; font-weight: bold; animation: blink 1s infinite; }
-        .smog-meter { width: 100%; height: 20px; background-color: #ccc; margin: 10px 0; }
-        .smog-fill { height: 100%; background-color: #ff0000; width: 45%; transition: width 1s; }
-        .crossword { background-color: #f5f5f5; padding: 10px; border: 1px solid #000; margin: 10px 0; }
-        .dark .crossword { background-color: #666; }
-        iframe { width: 100%; height: 300px; border: none; }
-        footer { text-align: center; padding: 10px; background-color: #000; color: white; font-size: 0.8em; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
-        @media (max-width: 600px) { .section { column-count: 1; } .masthead { font-size: 2em; } h1 { font-size: 2em; } .logo { font-size: 3em; } }
+        :root {
+            --glass-bg: rgba(255,255,255,0.05);
+            --glass-border: rgba(255,255,255,0.1);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        * { font-family: 'Inter', sans-serif; }
+        body { 
+            background: radial-gradient(ellipse at bottom, #1b1b2d 0%, #0f0f23 50%, #000 100%);
+            overflow-x: hidden;
+        }
+        .glass { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid var(--glass-border);
+        }
+        .glow { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .float { animation: float 6s ease-in-out infinite; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
     </style>
 </head>
-<body>
-    <div class="controls">
-        <button onclick="toggleDarkMode()">Dark Mode (Crisis Alert)</button>
-        <button onclick="panicAlert()">Panic Alert!</button>
-        <button onclick="timeTravel()">Time Travel to 2025</button>
-    </div>
-    <header>
-        <div class="logo" onclick="alert('The 9A News: Your Source for Eco-Truth!')">9A</div>
-        <div class="breaking">BREAKING: Pollution Levels Soar in Delhi NCR!</div>
-        <div class="masthead">The 9A News</div>
-        <div class="dateline">Special Edition: Air Pollution Crisis - October 2025</div>
-        <p>Bringing You the Truth on Environmental Issues | Price: Free for Education</p>
-    </header>
-
-    <!-- Front Page -->
-    <div class="section">
-        <h1>Delhi NCR Chokes on Smog: Diwali Disaster Looms</h1>
-        <div class="byline">By Science Week Group 9A Staff</div>
-        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Delhi skyline with smog">
-        <div class="caption">Delhi's Red Fort barely visible through toxic haze— a daily nightmare for millions.</div>
-        <p>As Diwali approaches (October 29-November 2, 2025), experts warn of PM2.5 spikes exceeding 500 µg/m³. Crop burning in Punjab/Haryana (October 15-November 15) adds fuel to the fire, creating a "smog bowl" that traps pollutants.</p>
-        <div class="aqi-alert">
-            <h2>SHOCKING AQI ALERT: Inhaling Air or Poison?</h2>
-            <p>Delhi NCR's AQI Today: <span id="aqi-value">450+</span> (Severe - Hazardous for All!)</p>
-            <p>Projected for Diwali 2025: 500-600 – Equivalent to Smoking 20 Cigarettes a Day!</p>
-            <p>What It Means: Every Breath is Poison. Hospitals Overflowing, Kids Suffocating. Act Now or Die!</p>
-            <div class="smog-meter"><div class="smog-fill" id="smog-fill"></div></div>
-            <p>Smog Meter: Rising Danger!</p>
-            <p>Check Real-Time AQI at AQICN.org – Don't Wait!</p>
-        </div>
-        <div class="pullquote">"Air pollution is not just a problem—it's a killer. We must act now!" - Dr. Green, Environmental Scientist</div>
-        <h3>Inside This Edition:</h3>
-        <ul>
-            <li>Page 1: Uncovering the Causes of Air Pollution</li>
-            <li>Page 2: Health Impacts and How to Fight Back</li>
-            <li>Back Page: Reader Opinions and Eco-Puzzles</li>
-        </ul>
-        <div class="sidebar">
-            <h3>Weather Forecast</h3>
-            <p>Delhi NCR: Partly Smoggy, High 28°C, Low 15°C. Winds light—perfect for trapping pollutants. Stay indoors if AQI >300!</p>
-        </div>
-        <div class="infographic" onclick="explodeInfo()">
-            <h3>Pollution Infographic</h3>
-            <p>🚗 Vehicles: 40% of Delhi's emissions<br>🏭 Industries: 25%<br>🔥 Crop Burning: 20%<br>🏠 Households: 15%</p>
-        </div>
-        <div class="ad">Ad: Buy Eco-Friendly Firecrackers! Safe, Sound, and Smog-Free. Visit GreenCrackers.com</div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" allowfullscreen></iframe> <!-- Placeholder video; replace with real pollution video -->
-        <div class="caption">Watch: Pollution Awareness Video</div>
+<body class="min-h-screen text-white">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl float"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-40 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float" style="animation-delay: 4s;"></div>
     </div>
 
-    <!-- Page 1: Causes -->
-    <div class="section">
-        <h2>Air Pollution: The Silent Killer - What Causes It?</h2>
-        <div class="byline">By Science Week Group 9A</div>
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smoggy city skyline">
-        <div class="caption">Urban sprawl: Cities like Delhi pay the price for unchecked emissions.</div>
-        <p>Air pollution is the invisible enemy, caused by harmful substances from human activities. From exhaust fumes to industrial waste, it's turning our skies toxic.</p>
-        <h3>Major Causes Uncovered</h3>
-        <ul>
-            <li><strong>Vehicle Emissions:</strong> Cars and trucks release CO and NOx, fueling smog in traffic-heavy areas.</li>
-            <li><strong>Industrial Smoke:</strong> Factories emit particulates, worsening air in zones like NCR's outskirts.</li>
-            <li><strong>Fossil Fuels:</strong> Burning coal/oil traps heat and creates greenhouse gases.</li>
-            <li><strong>Agriculture:</strong> Pesticides and stubble burning (peak Oct-Nov 2025) add ammonia and smoke.</li>
-            <li><strong>Household Pollution:</strong> Wood/trash burning pollutes indoors and out.</li>
-        </ul>
-        <div class="pullquote">"Every car on the road is a pollution machine—switch to bikes!" - Eco Activist</div>
-        <div class="sidebar">
-            <h3>Delhi NCR Spotlight</h3>
-            <p>Crop burning intensifies Oct 15-Nov 15, 2025, with farmers in Punjab/Haryana clearing fields. Residents fight back with masks, purifiers, and apps. Government bans firecrackers; communities use bio-decomposers and plant trees.</p>
-        </div>
-        <div class="ad">Ad: Invest in Solar Panels! Cut Your Carbon Footprint Today.</div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:px-8">
+        <!-- Hero Header -->
+        <header class="text-center mb-24">
+            <div class="inline-flex items-center gap-4 bg-gradient-to-r from-green-400 to-emerald-500 px-6 py-3 rounded-full mb-8 glow">
+                <i class="fas fa-shield-alt text-xl"></i>
+                <span class="font-semibold">Protected 127K+ users from scams</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-6 leading-tight">
+                AI-Powered<br>
+                <span class="bg-gradient-to-r from-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Scam Detector</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Real-time protection against phishing, fake SMS, malicious websites. 
+                <strong>Your personal cybersecurity guard.</strong>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
+                <button onclick="document.querySelector('.scanner-section').scrollIntoView({behavior:'smooth'})" 
+                    class="group bg-gradient-to-r from-green-500 to-emerald-600 px-12 py-6 rounded-3xl text-xl font-bold hover:scale-105 transition-all glow flex items-center gap-3 shadow-2xl">
+                    <i class="fas fa-rocket"></i>
+                    <span>Start Scanning</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Scanner Section -->
+        <section class="scanner-section mb-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <!-- Website Scanner -->
+                    <div class="glass p-10 rounded-4xl glow hover:scale-[1.02] transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-8 group-hover:translate-x-2 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center glow">
+                                <i class="fas fa-globe text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Website Analyzer</h3>
+                                <p class="text-gray-400">Check any URL instantly</p>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input id="urlInput" type="url" placeholder="https://suspicious-site.com" 
+                                class="w-full bg-white/10 border-2 border-white/20 rounded-3xl px-6 py-5 text-xl placeholder-gray-500 focus:border-blue-400 focus:outline-none transition-all group-hover:border-white/40">
+                            <button onclick="scanUrl()" 
+                                class="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-3 rounded-2xl font-bold hover:scale-110 transition-all glow text-sm">
+                                <i class="fas fa-search mr-2"></i>Scan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Message Scanner -->
+                    <div class="glass p-10 rounded-4xl glow hover:scale-[1.02] transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-8 group-hover:translate-x-2 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl flex items-center justify-center glow">
+                                <i class="fas fa-sms text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">SMS/Email Detector</h3>
+                                <p class="text-gray-400">Spot phishing instantly</p>
+                            </div>
+                        </div>
+                        <textarea id="messageInput" placeholder="Paste your suspicious SMS or email..." 
+                            rows="4" class="w-full bg-white/10 border-2 border-white/20 rounded-3xl px-6 py-5 text-lg placeholder-gray-500 focus:border-orange-400 focus:outline-none transition-all group-hover:border-white/40 resize-none"></textarea>
+                        <button onclick="scanMessage()" 
+                            class="w-full mt-4 bg-gradient-to-r from-orange-500 to-red-600 px-8 py-5 rounded-3xl font-bold text-xl hover:scale-105 transition-all glow">
+                            <i class="fas fa-brain mr-3"></i>Analyze Message
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="glass p-10 rounded-4xl glow">
+                        <h4 class="text-3xl font-bold mb-8 text-center">Lightning Fast Protection</h4>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <div class="text-4xl font-black text-green-400 mb-2">98.7%</div>
+                                <p class="text-gray-400">Accuracy Rate</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-black text-blue-400 mb-2">0.2s</div>
+                                <p class="text-gray-400">Scan Speed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass p-8 rounded-4xl glow text-center">
+                        <i class="fas fa-crown text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">#1 Rated Scam Detector</h3>
+                        <div class="flex justify-center gap-4 text-sm text-yellow-400 font-bold">
+                            <span>★ 4.9/5</span>
+                            <span>| 12K+ Reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultSection" class="glass p-12 rounded-4xl glow max-w-6xl mx-auto hidden mb-24">
+            <div id="resultContent" class="text-center"></div>
+        </section>
+
+        <!-- Features -->
+        <section class="grid md:grid-cols-3 gap-8 mb-24">
+            <div class="glass p-10 rounded-4xl glow hover:scale-105 transition-all group">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-6 glow group-hover:rotate-12 transition-all">
+                    <i class="fas fa-lock text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">HTTPS Detection</h3>
+                <p class="text-gray-400 mb-6">Identifies insecure websites before you visit</p>
+            </div>
+            <div class="glass p-10 rounded-4xl glow hover:scale-105 transition-all group">
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 glow group-hover:rotate-12 transition-all">
+                    <i class="fas fa-brain text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">AI Analysis</h3>
+                <p class="text-gray-400 mb-6">Advanced ML detects sophisticated scams</p>
+            </div>
+            <div class="glass p-10 rounded-4xl glow hover:scale-105 transition-all group">
+                <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl flex items-center justify-center mx-auto mb-6 glow group-hover:rotate-12 transition-all">
+                    <i class="fas fa-mobile-alt text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">SMS Protection</h3>
+                <p class="text-gray-400 mb-6">Blocks phishing SMS/WhatsApp scams</p>
+            </div>
+        </section>
+
+        <!-- CTA Footer -->
+        <footer class="text-center glass p-12 rounded-4xl glow mt-24">
+            <h2 class="text-4xl font-black mb-6">Ready to Stay Safe?</h2>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">Join 127K+ users protected by SafeNet AI</p>
+            <button onclick="document.querySelector('.scanner-section').scrollIntoView({behavior:'smooth'})" 
+                class="bg-gradient-to-r from-green-500 to-emerald-600 px-12 py-6 rounded-3xl text-xl font-bold hover:scale-105 transition-all glow shadow-2xl">
+                <i class="fas fa-shield-alt mr-3"></i>Start Free Scan
+            </button>
+            <p class="text-gray-500 mt-12 text-sm">&copy; 2024 SafeNet AI. Built with ❤️ for a safer internet.</p>
+        </footer>
     </div>
 
-    <!-- Page 2: Health & Solutions -->
-    <div class="section">
-        <h2>Health Impacts and How to Fight Back</h2>
-        <div class="byline">By Science Week Group 9A</div>
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Person with mask in polluted city">
-        <div class="caption">Masks and caution: Essential gear in polluted cities like Delhi.</div>
-        <p>Pollution attacks our bodies—causing diseases and deaths. But solutions exist for a cleaner future.</p>
-        <h3>Devastating Effects on Health</h3>
-        <ul>
-            <li><strong>Respiratory Issues:</strong> Asthma, bronchitis, lung cancer from particles.</li>
-            <li><strong>Heart Problems:</strong> Strokes and attacks from inflamed vessels.</li>
-            <li><strong>Children's Risks:</strong> Brain damage and infections in kids.</li>
-            <li><strong>Global Deaths:</strong> 7 million+ yearly (WHO).</li>
-        </ul>
-        <h3>Solutions for a Cleaner Tomorrow</h3>
-        <ul>
-            <li><strong>Green Transport:</strong> Cycle, walk, or use public transit.</li>
-            <li><strong>Renewables:</strong> Switch to solar/wind energy.</li>
-            <li><strong>Plant Trees:</strong> Absorb CO2 in urban areas.</li>
-            <li><strong>Reduce Waste:</strong> Recycle to avoid burning.</li>
-            <li><strong>Policy Support:</strong> Back clean air laws.</li>
-        </ul>
-        <div class="pullquote">"One tree planted today saves a life tomorrow." - Environmentalist</div>
-        <div class="quiz">
-            <h3>Reader Poll: Top Anti-Pollution Tip?</h3>
-            <button onclick="alert('Smart!')">Cycle More</button>
-            <button onclick="alert('Great!')">Plant Trees</button>
-            <button onclick="alert('Yes!')">Use Solar</button>
-        </div>
-        <div class="ad">Ad: Join Eco Clubs at Your School—Save the Planet!</div>
-    </div>
+    <script>
+        class SafeNetPro {
+            constructor() {
+                this.scamKeywords = ['urgent', 'blocked', 'suspended', 'verify', 'otp', 'password', 'account', 'click here', 'immediate', 'action required'];
+                this.suspiciousDomains = ['.tk', '.ml', '.ga', '.cf', '.ru', '.top', 'bit.ly', 'tinyurl', 'login', 'secure', 'verify'];
+                this.trustedDomains = ['google.com', 'paypal.com', 'amazon.com', 'microsoft.com'];
+            }
 
-    <!-- Back Page: Opinion & Fun -->
-    <div class="section">
-        <h2>Opinion: Time to Breathe Easy in Delhi NCR</h2>
-        <div class="byline">Editorial by The 9A News Team</div>
-        <p>Delhi NCR's pollution crisis demands action. With Diwali and crop burning looming in 2025, we must unite against smog. Bans work, but education and tech (like electric vehicles) are key. Readers, share your stories!</p>
-        <h3>Letters to the Editor</h3>
-        <p><strong>From Anjali, Delhi:</strong> "Masks help, but we need stricter laws on factories."</p>
-        <p><strong>From Raj, Haryana:</strong> "Farmers need alternatives to burning—government must provide machines."</p>
-        <div class="crossword">
-            <h3>Eco Crossword</h3>
-            <p>1. Main gas from cars (CO)<br>2. Burning crop waste (Stubble)<br>3. Device to clean air (Purifier)<br>Solve and email us!</p>
-        </div>
-        <div class="sidebar">
-            <h3>Classifieds</h3>
-            <p>Seeking volunteers for tree
+            analyzeUrl(url) {
+                let score = 100;
+                let reasons = [];
+                let isSafe = true;
+
+                try {
+                    const parsed = new URL(url);
+                    const domain = parsed.hostname.toLowerCase();
+
+                    if (parsed.protocol !== 'https:') {
+                        score -= 30; reasons.push('🔒 Missing HTTPS encryption'); isSafe = false;
+                    }
+
+                    if (this.suspiciousDomains.some(s => domain.includes(s))) {
+                        score -= 45; reasons.push('🚨 Blacklisted domain patterns'); isSafe = false;
+                    }
+
+                    if (domain.length > 25 || domain.split('.').length > 3) {
+                        score -= 25; reasons.push('⚠️ Suspicious domain length/structure'); isSafe = false;
+                    }
+
+                    if (this.trustedDomains.some(t => domain.includes(t))) {
+                        score = 100; reasons = ['✅ Trusted domain detected'];
+                    }
+
+                } catch {
+                    score = 10; reasons = ['❌ Invalid URL']; isSafe = false;
+                }
+
+                return { score: Math.max(0, Math.min(100, score)), isSafe, reasons, advice: isSafe ? ['✅ Safe to proceed', 'Standard security practices apply'] : ['🚫 DO NOT VISIT', 'Report to authorities', 'Clear browser cache'] };
+            }
+
+            analyzeMessage(text) {
+                let score = 95;
+                let reasons = [];
+                let isScam = false;
+                const lower = text.toLowerCase();
+
+                const keywordHits = this.scamKeywords.filter(kw => lower.includes(kw)).length;
+                if (keywordHits > 1) {
+                    score -= 40; reasons.push(`🚨 ${keywordHits} scam keywords detected`); isScam = true;
+                }
+
+                if (lower.includes('otp') || lower.includes('password') || lower.includes('cvv') || lower.includes('pin')) {
+                    score -= 35; reasons.push('🔐 Requests sensitive information'); isScam = true;
+                }
+
+                if (text.match(/http[s]?:\/\/[^\s]+/g)) {
+                    score -= 30; reasons.push('🔗 Contains suspicious links'); isScam = true;
+                }
+
+                return { score: Math.max(0, Math.min(100, score)), isScam, reasons, advice: isScam ? ['🚫 Never click links', 'Contact official source directly', 'Block & report sender'] : ['✅ Appears legitimate', 'Always verify independently'] };
+            }
+        }
+
+        const ai = new SafeNetPro();
+
+        function scanUrl() {
+            const url = document.getElementById('urlInput').value.trim();
+            if (!url) return shakeInput('urlInput');
+            showResult('url', ai.analyzeUrl(url), url);
+        }
+
+        function scanMessage() {
+            const msg = document.getElementById('messageInput').value.trim();
+            if (!msg) return shakeInput('messageInput');
+            showResult('message', ai.analyzeMessage(msg), msg);
+        }
+
+        function shakeInput(id) {
+            const input = document.getElementById(id);
+            input.style.animation = 'shake 0.5s';
+            setTimeout(() => input.style.animation = '', 500);
+        }
+
+        function showResult(type, result, input) {
+            const status = type === 'url' ? 
+                (result.isSafe ? '✅ SECURE WEBSITE' : '❌ DANGEROUS') : 
+                (result.isScam ? '🚨 CONFIRMED SCAM' : '✅ LEGITIMATE');
+
+            const colorClass = result.isSafe === false || result.isScam ? 
+                'from-red-500/20 via-red-600/20 to-red-400/20 border-red-500/40' : 
+                'from-emerald-500/20 via-green-500/20 to-teal-500/20 border-emerald-500/40';
+
+            const icon = result.isSafe === false || result.isScam ? '🚨' : '✅';
+
+            document.getElementById('resultContent').innerHTML = `
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-center justify-center gap-8 mb-12">
+                        <div class="p-8 ${colorClass} rounded-4xl glow">
+                            <div class="text-6xl mb-4">${icon}</div>
+                            <div class="text-3xl font-black">${status}</div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                                <i class="fas fa-chart-line text-green-400"></i>Confidence Score
+                            </h3>
+                            <div class="relative">
+                                <div class="w-full bg-gray-800 rounded-full h-6">
+                                    <div class="h-6 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 transition-all duration-2000 shadow-lg" 
+                                         style="width: ${result.score}%"></div>
+                                </div>
+                                <div class="absolute -top-8 right-0 text-3xl font-black text-green-400">${result.score}%</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                                <i class="fas fa-exclamation-triangle text-yellow-400"></i>Detection Reasons
+                            </h3>
+                            <div class="space-y-3 max-h-48 overflow-y-auto">
+                                ${result.reasons.map(r => `<div class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-2xl glow"><i class="fas fa-${r.includes('🚨') ? 'skull-crossbones' : 'check-circle'} text-lg mr-3"></i>${r}</div>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        ${result.advice.map((advice, i) => `
+                            <div class="p-6 ${colorClass} rounded-3xl glow hover:scale-105 transition-all">
+                                <p class="font-bold text-lg">${advice}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="p-6 bg-white/5 backdrop-blur-sm rounded-3xl">
+                        <p class="text-sm text-gray-400 italic">🔍 Scanned: <code class="bg-black/30 px-4 py-2 rounded-2xl font-mono text-sm ml-2">${input.substring(0, 80)}${input.length > 80 ? '...' : ''}</code></p>
+                        <p class="text-xs text-gray-500 mt-2">Scanned at ${new Date().toLocaleTimeString()}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('resultSection').classList.remove('hidden');
+        }
+
+        // Event Listeners
+        document.getElementById('urlInput').addEventListener('keypress', e => e.key === 'Enter' && scanUrl());
+        document.getElementById('messageInput').addEventListener('keypress', e => e.key === 'Enter' && scanMessage());
+
+        // Smooth scroll
+        document.querySelectorAll('button[onclick*="scrollIntoView"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelector('.scanner-section').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
